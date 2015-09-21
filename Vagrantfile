@@ -76,5 +76,11 @@ Vagrant.configure(2) do |config|
     curl -sSL https://get.docker.com/ | sh
     # Added user vagrant to docker group to run docker commands
     sudo usermod -aG docker vagrant 
+    sudo su vagrant
+    mkdir -p /home/vagrant/src
+    cd /home/vagrant/src
+    git clone https://github.com/bradleybossard/dotfiles.git
+    cd dotfiles
+    #sh setup.sh  # TODO(bradleybossard) : Setup script doesn't work as intended during provisioning.
   SHELL
 end
